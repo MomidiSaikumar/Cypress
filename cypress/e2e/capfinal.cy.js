@@ -204,7 +204,7 @@ describe('Demo Web Shop Automation Testing', () => {
       cy.get(':nth-child(2) > .remove-from-cart > input').click()
       cy.get(':nth-child(4) > .remove-from-cart > input').click()
       cy.get("input[value='Update shopping cart']").click()
-      cy.screenshot()
+    //  cy.screenshot()
     })
   
     // 4.3 Verify cart total calculations
