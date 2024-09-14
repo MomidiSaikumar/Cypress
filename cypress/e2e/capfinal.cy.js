@@ -178,9 +178,9 @@ describe('Demo Web Shop Automation Testing', () => {
     // Cart Management
     // 4.1 Add items to the cart
     it("Add items to the cart", () => {
-      cy.searchAndAddToCart("Black & White Diamond Heart", 14); // Add Product 2
-      cy.searchAndAddToCart("Smartphone", 43);                // Add Product 3
-      cy.searchAndAddToCart("14.1-inch Laptop", 31);          // Add Product 4
+      cy.searchAndAddToCart("Black & White Diamond Heart", 14); // Add Product 
+      cy.searchAndAddToCart("Smartphone", 43);                // Add Product 
+      cy.searchAndAddToCart("14.1-inch Laptop", 31);          // Add Product 
       cy.openCart();                                          // Open the cart
     });
   
@@ -348,14 +348,18 @@ describe('Checkout Process', () => {
     cy.get('#checkout').click();
     
     cy.get('#billing-address-select').select(2); // Replace with actual option value
-    cy.get('#BillingNewAddress_Company').type('Wipro');
-    cy.get('#BillingNewAddress_CountryId').select('India');
-    cy.get('#BillingNewAddress_City').type('Nellore');
-    cy.get('#BillingNewAddress_Address1').type('6/24 Navalakula Gardens');
-    cy.get('#BillingNewAddress_Address2').type('Ashoknagar, Nellore');
-    cy.get('#BillingNewAddress_ZipPostalCode').type('524002');
-    cy.get('#BillingNewAddress_PhoneNumber').type('9704842702');
-    cy.get('#BillingNewAddress_FaxNumber').type('+91 861 97048 42702');
+    //cy.get('#BillingNewAddress_Company').type('Wipro');
+    cy.get('#BillingNewAddress_Company').type('Wipro', { force: true });
+    //cy.get('#BillingNewAddress_CountryId').select('India');
+    cy.get('#BillingNewAddress_CountryId').select('India', { force: true });
+    //cy.get('#BillingNewAddress_City').type('Nellore');
+    cy.get('#BillingNewAddress_City').type('Nellore', { force: true });
+
+    cy.get('#BillingNewAddress_Address1').type('6/24 Navalakula Gardens', { force: true });
+    cy.get('#BillingNewAddress_Address2').type('Ashoknagar, Nellore',{ force: true });
+    cy.get('#BillingNewAddress_ZipPostalCode').type('524002',{ force: true });
+    cy.get('#BillingNewAddress_PhoneNumber').type('9704842702',{ force: true });
+    cy.get('#BillingNewAddress_FaxNumber').type('+91 861 97048 42702',{ force: true });
     cy.get("input[onclick='Billing.save()']").click();
     cy.get('#billing-buttons-container > .button-1').click({ force: true });
     
